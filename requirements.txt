@@ -1,0 +1,35 @@
+# LLM & Orchestration
+langchain==0.3.25
+langchain-community==0.3.24
+langchain-ollama==0.3.3
+langchain-text-splitters==0.3.8
+
+# Vector Store
+chromadb==0.5.23
+
+# PDF Processing
+pypdf==4.3.1
+pdfplumber==0.11.4
+pytesseract==0.3.13
+Pillow==10.4.0
+pdf2image==1.17.0
+
+# Database
+sqlalchemy==2.0.36
+mysql-connector-python==9.3.0
+
+# Data
+pandas==2.2.3
+numpy==1.26.4
+
+# Dashboard
+streamlit==1.40.2
+plotly==5.24.1
+wordcloud==1.9.3
+
+# Validation
+pydantic==2.9.2
+
+# Utilities
+python-dotenv==1.0.1
+psutil==6.1.0

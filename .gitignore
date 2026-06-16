@@ -1,0 +1,24 @@
+# Virtual environment
+tpis_env/
+
+# Data files
+data/uploads/*
+data/chroma_db/
+!data/uploads/.gitkeep
+
+# CSVs (exported, regenerated anytime)
+data/*.csv
+
+# Environment secrets
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

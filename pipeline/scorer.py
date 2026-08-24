@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field
 from config import LLM_MODEL
 
 # ── LLM Instance ────────────────────────────────────────
-llm = OllamaLLM(model=LLM_MODEL)
+llm = OllamaLLM(model=LLM_MODEL, num_ctx=4096)
 
 
 # ── Pydantic Score Model ─────────────────────────────────

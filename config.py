@@ -4,7 +4,6 @@
 # =============================================================================
 from pathlib import Path
 from urllib.parse import quote_plus
-from pathlib import Path
 
 # ── Project Root ──────────────────────────────────────────────────────────────
 BASE_DIR   = Path(__file__).resolve().parent
@@ -21,7 +20,7 @@ DB_HOST     = "localhost"
 DB_PORT     = 3306
 DB_NAME     = "tpis"
 DB_USER     = "root"
-DB_PASSWORD = "KHUSHALnagal@05#"    
+DB_PASSWORD = "KHUSHALnagal@05#"
 
 DB_URL = f"mysql+mysqlconnector://{DB_USER}:{quote_plus(DB_PASSWORD)}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
@@ -79,17 +78,3 @@ if __name__ == "__main__":
     print(f"CHROMA_DIR : {CHROMA_DIR}")
     print(f"DB_URL     : {DB_URL}")
     print(f"LLM_MODEL  : {LLM_MODEL}")
-
-
-
-# ---------------------------------------------------------------------------    
-from pathlib import Path
-from urllib.parse import quote_plus
-
-DB_HOST     = "localhost"
-DB_PORT     = 3306
-DB_NAME     = "tpis"
-DB_USER     = "root"
-DB_PASSWORD = "KHUSHALnagal@05#"
-
-DB_URL = f"mysql+mysqlconnector://{DB_USER}:{quote_plus(DB_PASSWORD)}@{DB_HOST}:{DB_PORT}/{DB_NAME}"

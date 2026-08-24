@@ -83,21 +83,26 @@ def create_report(trainee_id: int, filename: str) -> int:
 def insert_scores(report_id: int, scores: dict):
     with engine.connect() as conn:
         conn.execute(text("""
-            CALL sp_score_report(
+            INSERT INTO scores (
+                report_id, technical_depth, clarity,
+                methodology, results, references_score,
+                total, feedback
+            ) VALUES (
                 :report_id, :technical_depth, :clarity,
-                :methodology, :results, :references_val,
+                :methodology, :results, :references_score,
                 :total, :feedback
             )
         """), {
-            "report_id":       report_id,
-            "technical_depth": scores.get("technical_depth", 0),
-            "clarity":         scores.get("clarity", 0),
-            "methodology":     scores.get("methodology", 0),
-            "results":         scores.get("results", 0),
-            "references_val":  scores.get("references", 0),
-            "total":           scores.get("total", 0),
-            "feedback":        scores.get("feedback", "")
+            "report_id":        report_id,
+            "technical_depth":  scores.get("technical_depth", 0),
+            "clarity":          scores.get("clarity", 0),
+            "methodology":      scores.get("methodology", 0),
+            "results":          scores.get("results", 0),
+            "references_score": scores.get("references", 0),
+            "total":            scores.get("total", 0),
+            "feedback":         scores.get("feedback", "")
         })
+        conn.execute(text("UPDATE reports SET status = 'scored' WHERE report_id = :rid"), {"rid": report_id})
         conn.commit()
  
 # ── Keywords ──────────────────────────────────────────────────────────────────

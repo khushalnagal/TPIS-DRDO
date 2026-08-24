@@ -6,35 +6,7 @@ USE tpis;
 
 DELIMITER $$
 
--- 1. Insert scores after LLM scoring
-CREATE PROCEDURE sp_score_report(
-    IN p_report_id       INT,
-    IN p_technical_depth INT,
-    IN p_clarity         INT,
-    IN p_methodology     INT,
-    IN p_results         INT,
-    IN p_references      INT,
-    IN p_total           INT,
-    IN p_feedback        TEXT
-)
-BEGIN
-    INSERT INTO scores (
-        report_id, technical_depth, clarity,
-        methodology, results, references_score,
-        total, feedback
-    ) VALUES (
-        p_report_id, p_technical_depth, p_clarity,
-        p_methodology, p_results, p_references,
-        p_total, p_feedback
-    );
-
-    -- Mark report as scored
-    UPDATE reports
-    SET status = 'scored'
-    WHERE report_id = p_report_id;
-END$$
-
--- 2. Flag at-risk trainees
+-- 1. Flag at-risk trainees
 CREATE PROCEDURE sp_flag_at_risk()
 BEGIN
     SELECT
@@ -51,7 +23,7 @@ BEGIN
     ORDER BY s.total ASC;
 END$$
 
--- 3. Get full cohort report
+-- 2. Get full cohort report
 CREATE PROCEDURE sp_generate_cohort_report(
     IN p_cohort_name VARCHAR(100)
 )

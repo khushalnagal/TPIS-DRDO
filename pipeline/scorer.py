@@ -99,7 +99,7 @@ def score_report(report_text: str, filename: str = "unknown") -> dict:
     print(f"  Scoring: {filename}")
 
     # Truncate if too long for context window
-    max_chars = 3000
+    max_chars = 8000
     if len(report_text) > max_chars:
         report_text = report_text[:max_chars] + "\n...[truncated]"
 
